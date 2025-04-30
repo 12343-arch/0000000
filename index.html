@@ -1,0 +1,299 @@
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثلاثي المرح - خالد، رائد، وائل</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js"></script>
+</head>
+<body>
+    <!-- قائمة الأقسام -->
+    <div id="sections-menu" class="page active">
+        <h2>اختر قسمك المفضل</h2>
+        <div class="sections-grid">
+            <div class="section-card" data-section="friendship-test">
+                <div class="section-icon">🤔</div>
+                <h3>أنت مين في الثلاثي؟</h3>
+                <p>اختبار شخصية لتعرف أي من الثلاثي تشبه</p>
+            </div>
+            
+            <div class="section-card" data-section="future-bride">
+                <div class="section-icon">👰</div>
+                <h3>اختبار العروسة المستقبلية</h3>
+                <p>اكتشف من ستكون عروستك المستقبلية!</p>
+            </div>
+            
+            <div class="section-card" data-section="who-said">
+                <div class="section-icon">🗣️</div>
+                <h3>مين قال دي؟</h3>
+                <p>اختبر معرفتك بمقولات الثلاثي المشهورة</p>
+            </div>
+            
+            <div class="section-card" data-section="photo-gallery">
+                <div class="section-icon">📸</div>
+                <h3>معرض الصور</h3>
+                <p>ذكريات وفضائح الثلاثي</p>
+            </div>
+            
+            <div class="section-card" data-section="challenges">
+                <div class="section-icon">🏆</div>
+                <h3>منطقة التحديات</h3>
+                <p>تحديات خاصة بكل شخصية</p>
+            </div>
+            
+            <div class="section-card" data-section="easter-eggs">
+                <div class="section-icon">🥚</div>
+                <h3>المفاجآت السرية</h3>
+                <p>اكتشف أسرار الثلاثي المخفية</p>
+            </div>
+        </div>
+        
+        <button id="back-to-home" class="secondary-button">
+            العودة للصفحة الرئيسية
+        </button>
+    </div>
+
+    <!-- اختبار الصداقة -->
+    <div id="friendship-test" class="page">
+        <h2>أنت مين في الثلاثي؟</h2>
+        <div id="friendship-questions" class="quiz-container">
+            <!-- سيتم إضافة الأسئلة ديناميكياً عبر JavaScript -->
+        </div>
+        <div id="friendship-result" class="result-container hidden">
+            <h3>النتيجة!</h3>
+            <div class="result-image">
+                <img id="friendship-character-img" src="" alt="شخصيتك المطابقة">
+            </div>
+            <p id="friendship-character-result"></p>
+            <div class="share-buttons">
+                <button class="share-button whatsapp">مشاركة على واتساب <i class="fab fa-whatsapp"></i></button>
+                <button class="share-button facebook">مشاركة على فيسبوك <i class="fab fa-facebook"></i></button>
+                <button class="share-button instagram">مشاركة على انستجرام <i class="fab fa-instagram"></i></button>
+            </div>
+            <button class="restart-button">اختبار جديد</button>
+            <button class="back-to-menu">العودة للقائمة</button>
+        </div>
+    </div>
+
+    <!-- اختبار العروسة المستقبلية -->
+    <div id="future-bride" class="page">
+        <h2>اختبار العروسة المستقبلية</h2>
+        <div id="bride-questions" class="quiz-container">
+            <!-- سيتم إضافة الأسئلة ديناميكياً عبر JavaScript -->
+        </div>
+        <div id="bride-result" class="result-container hidden">
+            <div class="wedding-card">
+                <h3>مبروك! 💍</h3>
+                <div class="result-image">
+                    <img id="bride-character-img" src="" alt="عروستك المستقبلية">
+                </div>
+                <h4>عروستك هي: <span id="bride-name"></span></h4>
+                <p id="bride-description"></p>
+            </div>
+            <div class="share-buttons">
+                <button class="share-button whatsapp">مشاركة على واتساب <i class="fab fa-whatsapp"></i></button>
+                <button class="share-button facebook">مشاركة على فيسبوك <i class="fab fa-facebook"></i></button>
+                <button class="share-button instagram">مشاركة على انستجرام <i class="fab fa-instagram"></i></button>
+            </div>
+            <button class="restart-button">اختبار جديد</button>
+            <button class="back-to-menu">العودة للقائمة</button>
+        </div>
+    </div>
+
+    <!-- مين قال دي؟ -->
+    <div id="who-said" class="page">
+        <h2>مين قال دي؟</h2>
+        <div id="who-said-game" class="quiz-container">
+            <div id="who-said-question"></div>
+            <div id="who-said-options" class="options-container">
+                <button class="option-button" data-person="khaled">خالد</button>
+                <button class="option-button" data-person="raed">رائد</button>
+                <button class="option-button" data-person="wael">محمد وائل</button>
+            </div>
+            <div id="who-said-feedback" class="feedback hidden"></div>
+            <div id="who-said-progress">
+                <span id="current-question">1</span>/<span id="total-questions">5</span>
+            </div>
+        </div>
+        <div id="who-said-result" class="result-container hidden">
+            <h3>النتيجة النهائية!</h3>
+            <p>لقد حصلت على <span id="correct-answers">0</span> من 5</p>
+            <p id="final-feedback"></p>
+            <button class="restart-button">اختبار جديد</button>
+            <button class="back-to-menu">العودة للقائمة</button>
+        </div>
+    </div>
+
+    <!-- معرض الصور -->
+    <div id="photo-gallery" class="page">
+        <h2>معرض الصور</h2>
+        <div class="gallery-container">
+            <button id="prev-photo" class="gallery-nav">&lt;</button>
+            <div class="gallery-slider">
+                <div class="gallery-slide">
+                    <img src="https://scontent.fcai1-2.fna.fbcdn.net/v/t39.30808-6/474461652_1555929278417761_7171604586751628989_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHVyTkm4fe5dAxBDAVCOjeRr8UAKnXWs-qvxQAqddaz6jVCI2FXmOZH23YEirwwywx0Cnht9jvod8hgSD1GzESA&_nc_ohc=dOAxwspDeB8Q7kNvwE43iAl&_nc_oc=AdkjGwHSqgIXLmr9bRROlqZhpqBxem7FtnypiEUeB3ogLCJeY6fZTCLa-nkJU2ird_w&_nc_zt=23&_nc_ht=scontent.fcai1-2.fna&_nc_gid=1FQA_GGxUmU8RWZ-NSeRrw&oh=00_AfGQwJpcZwM5VOPR8EvCh4w7ME9IrObaENBARG3XohHNdA&oe=6817EF4D" alt="محمد وائل">
+                    <div class="photo-caption">محمد وائل وهو يفكر في كوب الشاي القادم 🍵</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="https://scontent.fcai1-2.fna.fbcdn.net/v/t39.30808-6/490697463_689758646822703_9210522810865935637_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFa3b0Ekha21U_J-RLYwVDHP5BXpNHo3yA_kFek0ejfIJoiof4eA9BI4OTuYoNeeav2npz_DNTc0iHPxx1nopHz&_nc_ohc=dE2qCKVQYhwQ7kNvwH3Q-yE&_nc_oc=Adm0vWDnfiCOiwsj5E4oj89gV7rhxD1Cppd087WUonBktXGonttbiwCeEc_CJ0IiAms&_nc_zt=23&_nc_ht=scontent.fcai1-2.fna&_nc_gid=dxjp6GHJ9JXUzIPYEnS2ZQ&oh=00_AfH1GzykLteySxNd8WRy0vGP1A_Qhs8gWjO_danzYcOrGA&oe=6817D2F4" alt="رائد">
+                    <div class="photo-caption">رائد يخطط لإضافة اسمه في قائمة العرايس 👰‍♂️</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="https://scontent.fcai1-2.fna.fbcdn.net/v/t39.30808-1/462631130_548759631032905_2387529165169777688_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeGbvZD8dU5k44Qfz_XAi4dXLKNGQzCZaHAso0ZDMJlocDXgGUnKmHZq6_aum8X22I3ZCQS-VM4b9zYwllLuYB-B&_nc_ohc=b3-M-baL-yIQ7kNvwGghzGb&_nc_oc=AdmYH_s2jpfLf5_wRowEOQXdOJzDgZqz7Obz6Swg5nDw8oMr9zd-mzn4jN3FtRC9j_w&_nc_zt=24&_nc_ht=scontent.fcai1-2.fna&_nc_gid=X37Slbb-Y9sJG1T10K710g&oh=00_AfF3lIDs0p274epyBowdkvCm88Gmkoi7WxlKbc4qosgtMA&oe=6817FDE2" alt="خالد">
+                    <div class="photo-caption">خالد في أحد اللحظات المضحكة والنادرة 😂</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' font-size='32' text-anchor='middle' dominant-baseline='middle'%3Eالثلاثي معاً%3C/text%3E%3C/svg%3E" alt="الثلاثي معاً">
+                    <div class="photo-caption">الثلاثي متجمعين ويخططون للمقلب القادم 😂</div>
+                </div>
+                <!-- صور إضافية لخالد ورائد مع لمسة جمالية -->
+                <div class="gallery-slide">
+                    <img src="https://scontent.fcai1-2.fna.fbcdn.net/v/t39.30808-1/462631130_548759631032905_2387529165169777688_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeGbvZD8dU5k44Qfz_XAi4dXLKNGQzCZaHAso0ZDMJlocDXgGUnKmHZq6_aum8X22I3ZCQS-VM4b9zYwllLuYB-B&_nc_ohc=b3-M-baL-yIQ7kNvwGghzGb&_nc_oc=AdmYH_s2jpfLf5_wRowEOQXdOJzDgZqz7Obz6Swg5nDw8oMr9zd-mzn4jN3FtRC9j_w&_nc_zt=24&_nc_ht=scontent.fcai1-2.fna&_nc_gid=X37Slbb-Y9sJG1T10K710g&oh=00_AfF3lIDs0p274epyBowdkvCm88Gmkoi7WxlKbc4qosgtMA&oe=6817FDE2" alt="خالد مكرر">
+                    <div class="photo-caption">خالد ومغامرة جديدة في طريق البحث عن الحب ❤️</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="https://scontent.fcai1-2.fna.fbcdn.net/v/t39.30808-6/490697463_689758646822703_9210522810865935637_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFa3b0Ekha21U_J-RLYwVDHP5BXpNHo3yA_kFek0ejfIJoiof4eA9BI4OTuYoNeeav2npz_DNTc0iHPxx1nopHz&_nc_ohc=dE2qCKVQYhwQ7kNvwH3Q-yE&_nc_oc=Adm0vWDnfiCOiwsj5E4oj89gV7rhxD1Cppd087WUonBktXGonttbiwCeEc_CJ0IiAms&_nc_zt=23&_nc_ht=scontent.fcai1-2.fna&_nc_gid=dxjp6GHJ9JXUzIPYEnS2ZQ&oh=00_AfH1GzykLteySxNd8WRy0vGP1A_Qhs8gWjO_danzYcOrGA&oe=6817D2F4" alt="رائد مكرر">
+                    <div class="photo-caption">رائد وحلمه الدائم في إيجاد العروسة المثالية 😂</div>
+                </div>
+            </div>
+            <button id="next-photo" class="gallery-nav">&gt;</button>
+        </div>
+        <div class="gallery-dots"></div>
+        <button class="back-to-menu">العودة للقائمة</button>
+    </div>
+
+    <!-- منطقة التحديات -->
+    <div id="challenges" class="page">
+        <h2>منطقة التحديات</h2>
+        <div class="challenges-grid">
+            <div class="challenge-card" data-challenge="khaled">
+                <h3>تحدي خالد</h3>
+                <div class="challenge-icon">🐞</div>
+                <p>إصلاح الباج قبل انتهاء الوقت!</p>
+                <button class="start-challenge">ابدأ التحدي</button>
+            </div>
+            <div class="challenge-card" data-challenge="raed">
+                <h3>تحدي رائد</h3>
+                <div class="challenge-icon">👁️</div>
+                <p>اكتشف الفروقات بين الصورتين</p>
+                <button class="start-challenge">ابدأ التحدي</button>
+            </div>
+            <div class="challenge-card" data-challenge="wael">
+                <h3>تحدي محمد وائل</h3>
+                <div class="challenge-icon">🧠</div>
+                <p>لعبة التركيز مع تشتيت</p>
+                <button class="start-challenge">ابدأ التحدي</button>
+            </div>
+        </div>
+        <button class="back-to-menu">العودة للقائمة</button>
+    </div>
+
+    <!-- تحدي خالد -->
+    <div id="khaled-challenge" class="page challenge-page">
+        <h2>تحدي خالد - إصلاح الباج</h2>
+        <div class="timer">الوقت المتبقي: <span id="khaled-timer">60</span> ثانية</div>
+        <div class="bug-fix-container">
+            <pre class="code-block"><code id="bug-code">
+function calculateTotal(items) {
+    let total = 0;
+    for (let i = 0; i <= items.length; i++) {
+        total += items[i].price;
+    }
+    return totl;
+}
+            </code></pre>
+            <div class="bug-options">
+                <p>اختر البق الموجود في الكود:</p>
+                <button class="bug-option" data-bug="loop">حلقة التكرار تتجاوز طول المصفوفة</button>
+                <button class="bug-option" data-bug="typo">خطأ إملائي في اسم المتغير (totl)</button>
+                <button class="bug-option" data-bug="both">كلا الخطأين موجودان</button>
+            </div>
+        </div>
+        <div id="khaled-challenge-result" class="result-container hidden">
+            <h3 id="khaled-result-title"></h3>
+            <p id="khaled-result-message"></p>
+            <button class="restart-challenge">محاولة أخرى</button>
+            <button class="back-to-challenges">العودة للتحديات</button>
+        </div>
+    </div>
+
+    <!-- تحدي رائد -->
+    <div id="raed-challenge" class="page challenge-page">
+        <h2>تحدي رائد - اكتشف الفروقات</h2>
+        <div class="timer">الوقت المتبقي: <span id="raed-timer">60</span> ثانية</div>
+        <div class="spot-difference-container">
+            <div class="image-container">
+                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f0f0f0'/%3E%3Ccircle cx='100' cy='100' r='50' fill='%23FF5733'/%3E%3Crect x='200' y='150' width='100' height='100' fill='%233399FF'/%3E%3Cpolygon points='150,300 250,300 200,200' fill='%2333FF57'/%3E%3Ctext x='50' y='50' font-size='20'%3Eصورة رائد 1%3C/text%3E%3C/svg%3E" id="image1" alt="صورة 1">
+                <div class="difference-spot" data-spot="1" style="top: 20%; left: 25%; width: 30px; height: 30px;"></div>
+                <div class="difference-spot" data-spot="2" style="top: 40%; left: 60%; width: 30px; height: 30px;"></div>
+                <div class="difference-spot" data-spot="3" style="top: 70%; left: 40%; width: 30px; height: 30px;"></div>
+            </div>
+            <div class="image-container">
+                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f0f0f0'/%3E%3Ccircle cx='100' cy='100' r='40' fill='%23FF5733'/%3E%3Crect x='200' y='150' width='100' height='100' fill='%233399FF'/%3E%3Cpolygon points='150,300 250,300 200,220' fill='%2333FF57'/%3E%3Ctext x='50' y='50' font-size='20'%3Eصورة رائد 2%3C/text%3E%3C/svg%3E" id="image2" alt="صورة 2">
+                <div class="difference-spot" data-spot="1" style="top: 20%; left: 25%; width: 30px; height: 30px;"></div>
+                <div class="difference-spot" data-spot="2" style="top: 40%; left: 60%; width: 30px; height: 30px;"></div>
+                <div class="difference-spot" data-spot="3" style="top: 70%; left: 40%; width: 30px; height: 30px;"></div>
+            </div>
+        </div>
+        <div class="differences-counter">
+            تم اكتشاف <span id="found-differences">0</span> من 3 فروقات
+        </div>
+        <div id="raed-challenge-result" class="result-container hidden">
+            <h3 id="raed-result-title"></h3>
+            <p id="raed-result-message"></p>
+            <button class="restart-challenge">محاولة أخرى</button>
+            <button class="back-to-challenges">العودة للتحديات</button>
+        </div>
+    </div>
+
+    <!-- تحدي محمد وائل -->
+    <div id="wael-challenge" class="page challenge-page">
+        <h2>تحدي محمد وائل - لعبة التركيز</h2>
+        <div class="timer">الوقت المتبقي: <span id="wael-timer">30</span> ثانية</div>
+        <div class="focus-game-container">
+            <div id="focus-instructions">
+                اضغط على الدوائر الخضراء فقط وتجنب الدوائر الحمراء!
+            </div>
+            <div class="game-area">
+                <!-- ستتم إضافة الدوائر ديناميكياً -->
+            </div>
+            <div class="score-display">
+                النقاط: <span id="focus-score">0</span>
+            </div>
+        </div>
+        <div id="wael-challenge-result" class="result-container hidden">
+            <h3 id="wael-result-title"></h3>
+            <p id="wael-result-message"></p>
+            <button class="restart-challenge">محاولة أخرى</button>
+            <button class="back-to-challenges">العودة للتحديات</button>
+        </div>
+    </div>
+
+    <!-- المفاجآت السرية -->
+    <div id="easter-eggs" class="page">
+        <h2>المفاجآت السرية</h2>
+        <div class="easter-eggs-container">
+            <button id="raed-secret" class="secret-button">اعرف سر رائد</button>
+            <button id="next-groom" class="secret-button">اضغط هنا لو نفسك تبقى العريس الجاي</button>
+            <button id="khaled-saying" class="secret-button">خالد بيقول إيه؟</button>
+            <button id="khaled-love-secret" class="secret-button">سر خالد في البنات</button>
+            <button id="raed-love-secret" class="secret-button">سر رائد في الجواز</button>
+            <button id="khaled-vs-raed-secret" class="secret-button">مواجهة حب البنات: خالد ضد رائد</button>
+            <button id="wael-secret" class="secret-button">سر وائل عن البنات والشاي</button>
+            <button id="bonus-future-wife" class="secret-button">مين أكتر واحدة ممكن توافق على رائد؟</button>
+        </div>
+        
+        <div id="secret-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div id="modal-content"></div>
+            </div>
+        </div>
+        
+        <button class="back-to-menu">العودة للقائمة</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
